@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#backgroud{
+			width: 360px;
+			height: 640px;
+			background: url('bird.png') no-repeat 0 0;
+			margin: 0 auto;
+			position: relative;
+			overflow: hidden;
+		}
+		#footer{
+			width: 420px;
+			height: 140px;
+			background: url('bird.png') no-repeat 0 -640px;
+			position: absolute;
+			bottom: 0;
+		}
+		#text{
+			width: 230px;
+			height: 63px;
+			background: url('bird.png') no-repeat -231px -781px;
+			position: absolute;
+			left: 65px;
+			top: 150px;
+		}
+		#tap{
+			width: 143px;
+			height: 123px;
+			background: url('bird.png') no-repeat 0 -836px;
+			position: absolute;		
+			left: 105px;
+			top: 250px;
+		}
+		#bird{
+			width: 43px;
+			height: 30px;
+			background: url('bird.png') no-repeat -360px 0;
+			position: absolute;
+			left: 60px;
+			top: 280px;
+		}
+	</style>
+</head>
+<body>
+	<div id="backgroud">
+		<div id="footer"></div>
+		<div id="text"></div>
+		<div id="tap"></div>
+		<div id="bird"></div>
+	</div>
+	<script>
+		var oFooter = document.getElementById('footer');
+		var oBird = document.getElementById('bird');
+		var startTime = Date.now();
+		var i = 0;
+		var timer = setInterval(function(){
+			
+			i = i % 3;
+			// var p = (Date.now() - startTime)%3;
+			if(i==0){
+				oBird.style.background = "url('bird.png') no-repeat -360px 0";
+				oBird.style.top = "278px";
+				i++;
+			}else if(i==1){
+				oBird.style.background = "url('bird.png') no-repeat -360px -32px";
+				i++;
+			}else if(i==2){
+				oBird.style.background = "url('bird.png') no-repeat -360px -64px";
+				oBird.style.top = "282px";
+				i++;
+			}
+			oFooter.style.transform = 'translateX(' + (-15 * i) +'px)';
+		},100);
+	</script>
+</body>
+</html>
